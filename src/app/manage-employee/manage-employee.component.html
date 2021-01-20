@@ -1,0 +1,117 @@
+<div class="container">
+    <br>
+    <h2>Employee Form:</h2>
+    <br>
+    <div class='employeee-form'>
+        <form [formGroup]="employeeData" novalidate (ngSubmit)="Submit()">
+            <div class="row col-sm-12">
+                <!--Employee name input box-->
+                <div class="col-sm-6 form-group ">
+                    <label>Employee name</label>
+                    <input type="text" id="m_name" class="form-control" [(ngModel)]="employee.name"
+                        formControlName="name"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('name').hasError('required')}">
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('name').hasError('required')">
+                        *Employee name is required.
+                    </div>
+                    <div style='color:red' *ngIf=" employeeData.controls['name'].hasError('pattern')">
+                        *enter the valid name.
+                    </div>
+                    <div style='color:red'
+                        *ngIf="employeeData.controls['name'].touched && employeeData.controls['name'].hasError('maxlength')">
+                        *name valid with in 20 charecters.
+                    </div>
+                </div>
+                <!--Employee gender-->
+                <div class="col-sm-6 form-group ">
+                    <label>Employee Gender</label>
+                    <select id="m_gender" formControlName="gender" class="form-control" [(ngModel)]="employee.gender"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('gender').hasError('required')}">
+                        <option value="" disabled>--Please choose employee gender--</option>
+                        <option value="Male">Male</option>
+                        <option value='Female'>Female</option>
+                        <option value='Third Gender'>Third Gender</option>
+                    </select>
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('gender').hasError('required')">
+                        *Employee name is required.
+                    </div>
+                </div>
+            </div>
+            <!--employee-mobileno-->
+            <div class="row col-sm-12">
+
+                <div class="col-sm-6 form-group ">
+                    <label>Employee MobileNumber</label>
+                    <input type="text" id="m_name" class="form-control" [(ngModel)]="employee.mobileNumber"
+                        formControlName="mobileNumber"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('mobileNumber').hasError('required')}">
+                    <div style='color:red'
+                        *ngIf="isFormSubmitted && employeeData.get('mobileNumber').hasError('required')">
+                        *Employee name is required.
+                    </div>
+                    <div style='color:red' *ngIf=" employeeData.controls['mobileNumber'].hasError('pattern')">
+                        *enter the valid name.
+                    </div>
+                    <div style='color:red'
+                        *ngIf="employeeData.controls['mobileNumber'].touched && employeeData.controls['mobileNumber'].hasError('maxlength')">
+                        *name valid with in 10 charecters.
+                    </div>
+                </div>
+                <!--Employee email-->
+                <div class="col-sm-6 form-group ">
+                    <label>Employee Email</label>
+                    <input [disabled]='' type="text" id="m_email" class="form-control" [(ngModel)]="employee.email"
+                        formControlName="email"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('email').hasError('required')}">
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('email').hasError('required')">
+                        *Employee Email is required.
+                    </div>
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('email').hasError('pattern')">
+                        *Enter the valid Email.
+                    </div>
+                </div>
+            </div>
+            <!--employee-salary-->
+            <div class="row col-sm-12">
+
+                <div class="col-sm-6 form-group ">
+                    <label>Employee salary</label>
+                    <input type="text" id="m_salary" class="form-control" [(ngModel)]="employee.salary"
+                        formControlName="salary"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('salary').hasError('required')}">
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('salary').hasError('required')">
+                        *Employee salary is required.
+                    </div>
+                </div>
+                <!--Employee address-->
+                <div class="col-sm-6 form-group ">
+                    <label>Employee Address</label>
+                    <input [disabled]='' type="text" id="m_address" class="form-control" [(ngModel)]="employee.address"
+                        formControlName="address"
+                        [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('address').hasError('required')}">
+                    <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('address').hasError('required')">
+                        *Employee Address is required.
+                    </div>
+                </div>
+            </div>
+            <!--Employee id-->
+            <div class="col-sm-6 form-group ">
+                <label>Employee Id</label>
+                <input [disabled]='' type="number" id="m_email" class="form-control" [(ngModel)]="employee.id"
+                    formControlName="id"
+                    [ngClass]="{'txtBdrColor':isFormSubmitted && employeeData.get('id').hasError('required')}">
+                <div style='color:red' *ngIf="isFormSubmitted && employeeData.get('id').hasError('required')">
+                    *Employee Id is required.
+                </div>
+            </div>
+            <button *ngIf='!isShow' style='margin-left: 450px;' type="submit" id='btn_title'
+                class="btn btn-success">Submit</button>
+
+            <button *ngIf='isShow' style='margin-left: 450px;' (click)='updateEmployee()' id='btn_title'
+                class="btn btn-success">Update</button>
+
+            <button style='margin-left: 4px;' type="button" id='btn_close_title' class="btn btn-danger"
+                data-dismiss="modal" (click)='Close()'>Close</button>
+        </form>
+    </div>
+</div>

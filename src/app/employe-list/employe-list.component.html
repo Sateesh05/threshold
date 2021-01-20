@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Employee List:</h2>
+  <div class="col-sm-12" style="padding: 0;">
+    <span style="color:rgb(206, 170, 9);font-size:27px;" id=dept_title></span>
+    <button class="btn btn-success  glyph bt-sm float-right" (click)="CreateEmployee()">
+      Add New Employee
+    </button>
+  </div>
+  <div class="row" style="margin-top:10px;margin-bottom: 10px;">
+  </div>
+  <div class="">
+    <div class="table-responsive-md-2">
+      <table class="table table-bordered
+                    table-hover
+                    table-stripped
+                    table-condensed">
+        <thead style="background-color: rgb(22, 155, 22);color: white;">
+          <tr>
+            <th style="font-weight: 400;">S.NO</th>
+            <th style="font-weight: 400;">EMPLOYEE NAME</th>
+            <th style="font-weight: 400;">MOBILE NO</th>
+            <th style="font-weight: 400;">EMAIL</th>
+            <th style="font-weight: 400;">Salary</th>
+            <th style="font-weight: 400;">Address</th>
+            <th style="font-weight: 400;" class='glyphicon glyphicon-pencil'>Action(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of employeeList;index as i">
+            <td>{{i+1}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.mobileNumber}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.salary}}</td>
+            <td>{{x.address}}</td>
+            <td>
+              <button style='outline: none;border: none;' class='mat-icon-button' (click)="updateemployee(x.id)">
+                <mat-icon color="accent" class="mat-18">edit</mat-icon>
+              </button>
+              <button (click)="DeleteEmployee(x.id)" style='outline: none;border: none;' class='mat-icon-button'>
+                <mat-icon color="warn" class="mat-18">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

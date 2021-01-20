@@ -1,0 +1,20 @@
+.logo{
+    margin-left: 700px ;
+    padding-top: 6px ;
+    border-radius: 50px;
+    margin-bottom: 3px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(101, 175, 236);
+    color: white;
+    text-align: center;
+    height: 6%;
+ }
+ .header{
+   background-color: rgb(102, 173, 236);
+ }
+ 

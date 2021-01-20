@@ -1,0 +1,10 @@
+.txtBdrColor
+{
+  border-color:red;
+}
+.employeee-form{
+    border: 2px solid gray;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 4px;
+}
